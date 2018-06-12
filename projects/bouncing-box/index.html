@@ -13,13 +13,16 @@
 		[class="box"] {
 			display: block;
 			position: absolute;
-			width: 70px;
-			height: 70px;
+			width: 300px;
+			height: 300px;
 			top: 100px;
 			left: 0px;
-			background-color: teal;
+			background-image:  url("https://orig07.deviantart.net/2431/f/2013/345/a/1/corgi_sticker_by_xnekorux-d6xmpd5.png");
 			font-size: 300%;
-			text-align: center;
+			text-align: center; }
+		
+		 
+		body {background-image:url("https://media1.tenor.com/images/2359659172874c653df44f7af4e37549/tenor.gif?itemid=5700833");
 		}
 	</style>
 
@@ -48,24 +51,29 @@
 			var position;
 			var points;
 			var speed;
+			var direction;
 			
 			position = 0;
-			points = 0
-			speed = 10
+			points = 0;
+			speed = 10;
+			direction = 1;
 			
 			box.css('left', position);      // changes the 'left' css property of the box to value of var position
-box.text(points);               // changes the text of the box to display the value of var points
+			box.text(points);               // changes the text of the box to display the value of var points
 			
 			function update() {
 				// TODO 3 / 6 / 7 / 8
 				position = position + (speed * direction);
-				if(position> boardWidth) {
-					position = 0
-				}
 				box.css('left', position);
 				box.text(points);
-				var direction;
-				direction = 1;
+				if(position > boardWidth) {
+					direction = -1;
+				} 
+				if(position < 0) {
+					direction = 1;
+				}
+				
+				
 			};
 
 
@@ -73,7 +81,7 @@ box.text(points);               // changes the text of the box to display the va
 			function handleBoxClick() {
 				// TODO 4 / 5
 				speed = speed + 3;
-				position + 0;
+				position = 0;
 				points = points + 1;
 			};
 
